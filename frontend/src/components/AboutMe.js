@@ -26,10 +26,17 @@ class AboutMe extends Component {
     return (
       /////////////////////////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////////////////////////
-      <section class='card p-3 mb-5'>
-        <h3 class="thin-font" style={fontColor}>{this.state.headerText}</h3>
-        <p class="thin-font">{this.state.paragraphOne}</p>
-        <p id="extraAboutText" class="thin-font">{this.state.paragraphTwo}</p>
+      <section class="card mb-4">
+        <div className="card-header"></div>
+        <div className="card-body">
+          <h3 class="thin-font" style={fontColor}>
+            {this.state.headerText}
+          </h3>
+          <p class="thin-font">{this.state.paragraphOne}</p>
+          <p id="extraAboutText" class="thin-font">
+            {this.state.paragraphTwo}
+          </p>
+        </div>
       </section>
       /////////////////////////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////////////////////////

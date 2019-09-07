@@ -59,11 +59,14 @@ class Connect extends Component {
     return (
       /////////////////////////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////////////////////////
-      <div className="container card bg-dark p-3 mb-5">
-        <div className="row">
-          {connectBlocksToShow.map(this.drawConnectBlocks)}
+      <section class="card mb-4">
+        <div className="card-header"></div>
+        <div className="card-body">
+          <div className="row">
+            {connectBlocksToShow.map(this.drawConnectBlocks)}
+          </div>
         </div>
-      </div>
+      </section>
       /////////////////////////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////////////////////////
     );
