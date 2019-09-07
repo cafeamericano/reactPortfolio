@@ -23,6 +23,10 @@ const createdApplications = [
   }
 ];
 
+var appThumbnailStyle = {
+  height: "200px"
+};
+
 class Applications extends Component {
   constructor(props) {
     super(props);
@@ -32,13 +36,17 @@ class Applications extends Component {
   }
 
   drawCards = argObj => (
-    <div className="col-6 mb-5">
-      <div className="card">
-        <h5>{argObj.title}</h5>
-        <img src={argObj.imagePath} />
-        <p>{argObj.techsUsed}</p>
-        <p>{argObj.deployedLink}</p>
-        <p>{argObj.githubLink}</p>
+    <div className="col-xl-4 col-md-6">
+      <div className="card shadow">
+        <div className="p-3">
+          <h5>{argObj.title}</h5>
+        </div>
+        <img src={argObj.imagePath} style={appThumbnailStyle} />
+        <div className="p-3">
+          <p>{argObj.techsUsed}</p>
+          <p>{argObj.deployedLink}</p>
+          <p>{argObj.githubLink}</p>
+        </div>
       </div>
     </div>
   );
@@ -48,7 +56,7 @@ class Applications extends Component {
     return (
       /////////////////////////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////////////////////////
-      <div className="container">
+      <div className="container card bg-dark p-3 mb-5">
         <div className="row">{appsToShow.map(this.drawCards)}</div>
       </div>
       /////////////////////////////////////////////////////////////////////////////////
