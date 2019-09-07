@@ -15,17 +15,17 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      totalClicks: 0,
+      totalClicks: 0
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.tallyCumulativeClicks = this.tallyCumulativeClicks.bind(this);
   }
 
   //LIFECYCLE METHODS=========================================================================================================================================================
 
   //SELF METHODS=========================================================================================================================================================
 
-  //When handleClick is called, do the following
-  handleClick() {
+  //When tallyCumulativeClicks is called, do the following
+  tallyCumulativeClicks() {
     const total = this.state.totalClicks;
     this.setState({ totalClicks: total + 1 });
   }
@@ -35,9 +35,16 @@ class Main extends Component {
   render() {
     return (
       <div className="p-3">
-        <AboutMe badgeCount='3' clickingAction={this.handleClick}></AboutMe>
-        <Applications badgeCount='7' clickingAction={this.handleClick}></Applications>
-        <Connect badgeCount='2' clickingAction={this.handleClick}></Connect>
+        <div class="alert alert-secondary" role="alert">
+          Total Clicks Across All Components: {this.state.totalClicks}
+        </div>
+        <AboutMe
+          cumulativeClicker={this.tallyCumulativeClicks}
+        ></AboutMe>
+        <Applications
+          cumulativeClicker={this.tallyCumulativeClicks}
+        ></Applications>
+        <Connect cumulativeClicker={this.tallyCumulativeClicks}></Connect>
       </div>
     );
   }

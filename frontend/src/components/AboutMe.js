@@ -26,7 +26,7 @@ class AboutMe extends Component {
     return (
       /////////////////////////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////////////////////////
-      <section onClick={this.props.clickingAction} class="card mb-4">
+      <section onClick={this.props.cumulativeClicker} class="card mb-4">
         <div className="card-header text-right">
           <span class="badge badge-primary">{this.props.badgeCount}</span>
         </div>
