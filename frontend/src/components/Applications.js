@@ -31,6 +31,7 @@ class Applications extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      visible: this.props.visibility,
       selfClickCounter: 0,
       applications: createdApplications
     };
@@ -40,6 +41,14 @@ class Applications extends Component {
   tallySelfClicks() {
     var x = this.state.selfClickCounter;
     this.setState({ selfClickCounter: x + 1 });
+  }
+
+  componentDidUpdate() {
+    //Allows state to change when prop is updated by parent
+    let x = this.props.visibility;
+    if (x !== this.state.visible) {
+      this.setState({ visible: x });
+    }
   }
 
   drawCards = argObj => (
@@ -60,24 +69,28 @@ class Applications extends Component {
 
   render() {
     const appsToShow = this.state.applications;
-    return (
-      /////////////////////////////////////////////////////////////////////////////////
-      /////////////////////////////////////////////////////////////////////////////////
-      <section onClick={this.props.cumulativeClicker} class="card mb-4">
-        <subsection onClick={this.tallySelfClicks}>
-          <div className="card-header text-right">
-            <span class="badge badge-primary">
-              {this.state.selfClickCounter}
-            </span>
-          </div>
-          <div className="card-body">
-            <div className="row">{appsToShow.map(this.drawCards)}</div>
-          </div>
-        </subsection>
-      </section>
-      /////////////////////////////////////////////////////////////////////////////////
-      /////////////////////////////////////////////////////////////////////////////////
-    );
+    if (this.state.visible) {
+      return (
+        /////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////
+        <section onClick={this.props.cumulativeClicker} class="card mb-4">
+          <subsection onClick={this.tallySelfClicks}>
+            <div className="card-header text-right">
+              <span class="badge badge-primary">
+                {this.state.selfClickCounter}
+              </span>
+            </div>
+            <div className="card-body">
+              <div className="row">{appsToShow.map(this.drawCards)}</div>
+            </div>
+          </subsection>
+        </section>
+        /////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////
+      );
+    } else {
+      return null;
+    }
   }
 }
 

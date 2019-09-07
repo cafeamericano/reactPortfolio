@@ -15,9 +15,15 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      totalClicks: 0
+      totalClicks: 0,
+      subComponentVisibilityToggler: {
+        AboutMe: true,
+        Applications: true,
+        Connect: true
+      }
     };
     this.tallyCumulativeClicks = this.tallyCumulativeClicks.bind(this);
+    this.toggleVisibilityForAll = this.toggleVisibilityForAll.bind(this);
   }
 
   //LIFECYCLE METHODS=========================================================================================================================================================
@@ -30,21 +36,49 @@ class Main extends Component {
     this.setState({ totalClicks: total + 1 });
   }
 
+  toggleVisibilityForAll() {
+    if (this.state.subComponentVisibilityToggler.AboutMe) {
+      this.setState({
+        subComponentVisibilityToggler: {
+          AboutMe: false,
+          Applications: false,
+          Connect: false,
+        }
+      });
+    } else {
+      this.setState({
+        subComponentVisibilityToggler: {
+          AboutMe: true,
+          Applications: true,
+          Connect: true
+        }
+      });
+    }
+  }
+
   //RENDER=========================================================================================================================================================
 
   render() {
     return (
       <div className="p-3">
+        <div onClick={this.toggleVisibilityForAll} class="text-right mb-3">
+          <i class="fas fa-eye-slash fa-2x"></i>
+        </div>
         <div class="alert alert-secondary" role="alert">
           Total Clicks Across All Components: {this.state.totalClicks}
         </div>
         <AboutMe
+          visibility={this.state.subComponentVisibilityToggler.AboutMe}
           cumulativeClicker={this.tallyCumulativeClicks}
         ></AboutMe>
         <Applications
+          visibility={this.state.subComponentVisibilityToggler.Applications}
           cumulativeClicker={this.tallyCumulativeClicks}
         ></Applications>
-        <Connect cumulativeClicker={this.tallyCumulativeClicks}></Connect>
+        <Connect
+          visibility={this.state.subComponentVisibilityToggler.Connect}
+          cumulativeClicker={this.tallyCumulativeClicks}
+        ></Connect>
       </div>
     );
   }

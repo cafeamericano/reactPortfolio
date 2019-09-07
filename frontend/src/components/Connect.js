@@ -35,6 +35,7 @@ class Connect extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      visible: this.props.visibility,
       selfClickCounter: 0,
       connectBlocks: connectBlocksJSON
     };
@@ -44,6 +45,14 @@ class Connect extends Component {
   tallySelfClicks() {
     var x = this.state.selfClickCounter;
     this.setState({ selfClickCounter: x + 1 });
+  }
+
+  componentDidUpdate() {
+    //Allows state to change when prop is updated by parent
+    let x = this.props.visibility;
+    if (x !== this.state.visible) {
+      this.setState({ visible: x });
+    }
   }
 
   drawConnectBlocks = argObj => (
@@ -63,26 +72,30 @@ class Connect extends Component {
 
   render() {
     const connectBlocksToShow = this.state.connectBlocks;
-    return (
-      /////////////////////////////////////////////////////////////////////////////////
-      /////////////////////////////////////////////////////////////////////////////////
-      <section onClick={this.props.cumulativeClicker} class="card mb-4">
-        <subsection onClick={this.tallySelfClicks}>
-          <div className="card-header text-right">
-            <span class="badge badge-primary">
-              {this.state.selfClickCounter}
-            </span>
-          </div>
-          <div className="card-body">
-            <div className="row">
-              {connectBlocksToShow.map(this.drawConnectBlocks)}
+    if (this.state.visible) {
+      return (
+        /////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////
+        <section onClick={this.props.cumulativeClicker} class="card mb-4">
+          <subsection onClick={this.tallySelfClicks}>
+            <div className="card-header text-right">
+              <span class="badge badge-primary">
+                {this.state.selfClickCounter}
+              </span>
             </div>
-          </div>
-        </subsection>
-      </section>
-      /////////////////////////////////////////////////////////////////////////////////
-      /////////////////////////////////////////////////////////////////////////////////
-    );
+            <div className="card-body">
+              <div className="row">
+                {connectBlocksToShow.map(this.drawConnectBlocks)}
+              </div>
+            </div>
+          </subsection>
+        </section>
+        /////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////
+      );
+    } else {
+      return null;
+    }
   }
 }
 
