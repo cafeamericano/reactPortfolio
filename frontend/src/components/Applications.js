@@ -20,6 +20,26 @@ const createdApplications = [
     techsUsed:
       "NodeJS, MongoDB, Heroku, JavaScript, User Authentication, Express, HandlebarsJS, jQuery",
     imagePath: "appImages/careerCoach.png"
+  },
+  {
+    title: "Study Helper",
+    deployedLink: "https://mystudyhelper.herokuapp.com/",
+    githubLink: "https://github.com/cafeamericano/studyHelper",
+    description:
+      "Keep track of your study habits with this elegantly designed application. Demonstrates understanding of NodeJS, PostgreSQL, Express, Handlebars, AJAX, and more.",
+    techsUsed:
+      "NodeJS, PostgreSQL, Heroku, JavaScript, User Authentication, Express, HandlebarsJS, jQuery",
+    imagePath: "appImages/studyhelper.png"
+  },
+  {
+    title: "Dashboard",
+    deployedLink: "https://cafeamericano.github.io/UNC-Project01/index.html",
+    githubLink: "https://github.com/cafeamericano/UNC-Project01",
+    description:
+      "Quickly get information on stocks, weather, news, and more in this one-stop application. Demonstrates understanding of APIs, jQuery, AJAX, Firebase Authentication, and collaborative development.",
+    techsUsed:
+      "JavaScript, Firebase Realtime Database, User Authentication, API Consumption, ChartsJS, jQuery",
+    imagePath: "appImages/dashboard.png"
   }
 ];
 
@@ -59,9 +79,17 @@ class Applications extends Component {
         </div>
         <img src={argObj.imagePath} style={appThumbnailStyle} />
         <div className="p-3">
-          <p>{argObj.techsUsed}</p>
-          <p>{argObj.deployedLink}</p>
-          <p>{argObj.githubLink}</p>
+          <small>Uses: {argObj.techsUsed}</small>
+          <br></br>
+          <div className='text-right'>
+            <a href={argObj.githubLink}>
+              <i class="fab fa-github"></i>
+            </a>
+            <span> | </span>
+            <a href={argObj.deployedLink}>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
