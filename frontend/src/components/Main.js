@@ -35,9 +35,9 @@ class Main extends Component {
   render() {
     return (
       <div className="p-3">
-        <AboutMe badgeCount='3'></AboutMe>
-        <Applications badgeCount='7'></Applications>
-        <Connect badgeCount='2'></Connect>
+        <AboutMe badgeCount='3' clickingAction={this.handleClick}></AboutMe>
+        <Applications badgeCount='7' clickingAction={this.handleClick}></Applications>
+        <Connect badgeCount='2' clickingAction={this.handleClick}></Connect>
       </div>
     );
   }
