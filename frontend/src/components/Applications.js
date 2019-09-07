@@ -44,7 +44,7 @@ const createdApplications = [
 ];
 
 var appThumbnailStyle = {
-  height: "200px"
+  height: "200px",
 };
 
 class Applications extends Component {
@@ -74,22 +74,16 @@ class Applications extends Component {
   drawCards = argObj => (
     <div className="col-xl-4 col-md-6">
       <div className="card shadow mb-3">
-        <div className="p-3">
-          <h5>{argObj.title}</h5>
-        </div>
+        <h5 className='p-3'>{argObj.title}</h5>
         <img src={argObj.imagePath} style={appThumbnailStyle} />
-        <div className="p-3">
-          <small>Uses: {argObj.techsUsed}</small>
-          <br></br>
-          <div className='text-right'>
-            <a href={argObj.githubLink}>
-              <i class="fab fa-github"></i>
-            </a>
-            <span> | </span>
-            <a href={argObj.deployedLink}>
-              <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+        <div className="card-footer text-right">
+          <a href={argObj.githubLink}>
+            <i class="fab fa-github"></i>
+          </a>
+          <span> | </span>
+          <a href={argObj.deployedLink}>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </div>
     </div>

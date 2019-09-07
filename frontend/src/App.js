@@ -11,7 +11,7 @@ class App extends Component {
       return(
           <div className="bg-light">
                 <Header/>
-                <div class="container"><Main/></div>
+                <div className="container animated slideInRight"><Main/></div>
           </div>
       );
   }

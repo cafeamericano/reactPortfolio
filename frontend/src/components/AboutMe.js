@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 
-const fontColor = {
-  color: "#f0ca62"
-};
-
 class AboutMe extends Component {
   constructor(props) {
     super(props);
@@ -47,11 +43,11 @@ class AboutMe extends Component {
               </span>
             </div>
             <div className="card-body">
-              <h3 class="thin-font" style={fontColor}>
-                {this.state.headerText}
+              <h3 class="mb-4">
+                {this.state.content.headerText}
               </h3>
-              <p class="thin-font">{this.state.content.paragraphOne}</p>
-              <p id="extraAboutText" class="thin-font">
+              <p>{this.state.content.paragraphOne}</p>
+              <p id="extraAboutText">
                 {this.state.content.paragraphTwo}
               </p>
             </div>
