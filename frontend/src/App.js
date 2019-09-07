@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
-import Main from './components/Main.js';
-import Header from './components/Header';
+import React, { Component } from "react";
+import Main from "./components/Main.js";
+import Header from "./components/Header";
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-    }
-  
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-      return(
-          <div className="bg-light">
-                <Header/>
-                <div className="container animated slideInRight"><Main/></div>
-          </div>
-      );
+    return (
+      <div className="bg-light">
+        <Header />
+        <div className="container animated fadeInUpBig">
+          <Main />
+        </div>
+      </div>
+    );
   }
 }
 
