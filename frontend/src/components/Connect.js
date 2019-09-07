@@ -60,7 +60,9 @@ class Connect extends Component {
       /////////////////////////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////////////////////////
       <section class="card mb-4">
-        <div className="card-header"></div>
+        <div className="card-header text-right">
+          <span class="badge badge-primary">{this.props.badgeCount}</span>
+        </div>
         <div className="card-body">
           <div className="row">
             {connectBlocksToShow.map(this.drawConnectBlocks)}

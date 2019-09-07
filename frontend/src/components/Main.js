@@ -35,9 +35,9 @@ class Main extends Component {
   render() {
     return (
       <div className="p-3">
-        <AboutMe name='Matthew'></AboutMe>
-        <Applications></Applications>
-        <Connect></Connect>
+        <AboutMe badgeCount='3'></AboutMe>
+        <Applications badgeCount='7'></Applications>
+        <Connect badgeCount='2'></Connect>
       </div>
     );
   }
