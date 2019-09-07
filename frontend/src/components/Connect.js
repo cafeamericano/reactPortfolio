@@ -20,12 +20,14 @@ const connectBlocksJSON = [
   {
     title: "Email",
     icon: "fas fa-envelope fa-5x",
-    href: "mfarmer5102@gmail.com"
+    href: "#",
+    text: "mfarmer5102@gmail.com"
   },
   {
     title: "Phone",
     icon: "fas fa-phone fa-5x",
-    href: "252-289-2937"
+    href: "#",
+    text: "252-289-2937"
   }
 ];
 
@@ -38,7 +40,7 @@ class Connect extends Component {
   }
 
   drawConnectBlocks = argObj => (
-    <div className="col-xl-4 col-sm-6">
+    <div className="col-xl-4 col-lg-4 col-xs-6">
       <div className="card shadow mb-3 text-center">
         <div className="p-3">
           <h5>{argObj.title}</h5>

@@ -5,17 +5,18 @@ const headerStyle = {
   color: "black",
   fontFamily: "monoton",
   fontSize: "50px",
-  padding: "10px",
+  padding: "10px"
 };
 
 class Header extends Component {
   render() {
     return (
-      <div id="logo" className="">
-        <h1 class='text-center' style={headerStyle}>
-          <i class="fab fa-react"></i> <span>Portfolio</span>
-        </h1>
-      </div>
+      <nav className="navbar navbar-dark bg-dark text-center">
+        <span className="navbar-brand mb-0 h1">
+          <i className="fab fa-react"></i>
+          <span> Portfolio</span>
+        </span>
+      </nav>
     );
   }
 }
