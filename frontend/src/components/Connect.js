@@ -35,8 +35,15 @@ class Connect extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      selfClickCounter: 0,
       connectBlocks: connectBlocksJSON
     };
+    this.tallySelfClicks = this.tallySelfClicks.bind(this);
+  }
+
+  tallySelfClicks() {
+    var x = this.state.selfClickCounter;
+    this.setState({ selfClickCounter: x + 1 });
   }
 
   drawConnectBlocks = argObj => (
@@ -60,14 +67,18 @@ class Connect extends Component {
       /////////////////////////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////////////////////////
       <section onClick={this.props.cumulativeClicker} class="card mb-4">
-        <div className="card-header text-right">
-          <span class="badge badge-primary">{this.props.badgeCount}</span>
-        </div>
-        <div className="card-body">
-          <div className="row">
-            {connectBlocksToShow.map(this.drawConnectBlocks)}
+        <subsection onClick={this.tallySelfClicks}>
+          <div className="card-header text-right">
+            <span class="badge badge-primary">
+              {this.state.selfClickCounter}
+            </span>
           </div>
-        </div>
+          <div className="card-body">
+            <div className="row">
+              {connectBlocksToShow.map(this.drawConnectBlocks)}
+            </div>
+          </div>
+        </subsection>
       </section>
       /////////////////////////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////////////////////////

@@ -31,8 +31,15 @@ class Applications extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      selfClickCounter: 0,
       applications: createdApplications
     };
+    this.tallySelfClicks = this.tallySelfClicks.bind(this);
+  }
+
+  tallySelfClicks() {
+    var x = this.state.selfClickCounter;
+    this.setState({ selfClickCounter: x + 1 });
   }
 
   drawCards = argObj => (
@@ -57,12 +64,16 @@ class Applications extends Component {
       /////////////////////////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////////////////////////
       <section onClick={this.props.cumulativeClicker} class="card mb-4">
-        <div className="card-header text-right">
-          <span class="badge badge-primary">{this.props.badgeCount}</span>
-        </div>
-        <div className="card-body">
-          <div className="row">{appsToShow.map(this.drawCards)}</div>
-        </div>
+        <subsection onClick={this.tallySelfClicks}>
+          <div className="card-header text-right">
+            <span class="badge badge-primary">
+              {this.state.selfClickCounter}
+            </span>
+          </div>
+          <div className="card-body">
+            <div className="row">{appsToShow.map(this.drawCards)}</div>
+          </div>
+        </subsection>
       </section>
       /////////////////////////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////////////////////////
