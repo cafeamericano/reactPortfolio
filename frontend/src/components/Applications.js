@@ -37,7 +37,7 @@ class Applications extends Component {
 
   drawCards = argObj => (
     <div className="col-xl-4 col-md-6">
-      <div className="card shadow">
+      <div className="card shadow mb-3">
         <div className="p-3">
           <h5>{argObj.title}</h5>
         </div>
